@@ -1,0 +1,42 @@
+{
+  "name": "117_final_fall_2025",
+  "version": "1.0.0",
+  "description": "IS117 Final Project - Professional Web Portfolio System",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint:html": "htmlhint docs/**/*.html",
+    "lint:css": "stylelint 'docs/**/*.css'",
+    "lint": "npm run lint:html && npm run lint:css",
+    "lighthouse": "lhci autorun",
+    "prepare": "husky install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ial23-blip/117_final_fall_2025.git"
+  },
+  "keywords": [
+    "portfolio",
+    "web-development",
+    "responsive-design",
+    "accessibility"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ial23-blip/117_final_fall_2025/issues"
+  },
+  "homepage": "https://github.com/ial23-blip/117_final_fall_2025#readme",
+  "lint-staged": {
+    "*.html": "htmlhint",
+    "*.css": "stylelint"
+  },
+  "devDependencies": {
+    "@lhci/cli": "^0.15.1",
+    "htmlhint": "^1.8.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.7",
+    "stylelint": "^16.26.1",
+    "stylelint-config-standard": "^39.0.1"
+  }
+}

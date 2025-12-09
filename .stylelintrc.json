@@ -1,0 +1,15 @@
+{
+  "extends": "stylelint-config-standard",
+  "rules": {
+    "color-hex-length": "short",
+    "color-named": "never",
+    "declaration-block-no-duplicate-properties": true,
+    "font-family-name-quotes": "always-where-recommended",
+    "function-url-quotes": "always",
+    "number-leading-zero": "always",
+    "number-no-trailing-zeros": true,
+    "selector-pseudo-element-colon-notation": "double",
+    "unit-allowed-list": ["px", "rem", "em", "%", "vh", "vw", "s", "ms", "deg"],
+    "value-keyword-case": "lower"
+  }
+}
