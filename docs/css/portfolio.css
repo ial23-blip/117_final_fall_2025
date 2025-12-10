@@ -91,9 +91,14 @@ button {
   transition: all var(--transition);
 }
 
-/* Mobile menu overlay */
+/* Mobile menu overlay - prevent body scroll when menu open */
 @media (max-width: 1023px) {
-  body.menu-open {
+  .menu-toggle-checkbox:checked ~ * {
+    /* Menu is open */
+  }
+  
+  /* Prevent body scroll when menu is open */
+  body:has(.menu-toggle-checkbox:checked) {
     overflow: hidden;
   }
 }
@@ -137,22 +142,50 @@ button {
   align-items: center;
 }
 
-.mobile-menu-toggle {
+/* CSS-only Hamburger Menu */
+.menu-toggle-checkbox {
   display: none;
-  background: none;
-  border: none;
-  font-size: 1.5rem;
+}
+
+.hamburger-menu {
+  display: none;
+  flex-direction: column;
   cursor: pointer;
   padding: 0.5rem;
-  color: var(--color-text);
+  gap: 6px;
+  z-index: 1001;
   min-width: 44px;
   min-height: 44px;
+  justify-content: center;
+  align-items: center;
+}
+
+.hamburger-line {
+  width: 28px;
+  height: 3px;
+  background-color: var(--color-text);
+  border-radius: 3px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: center;
+}
+
+/* Hamburger animation when checked */
+.menu-toggle-checkbox:checked ~ .hamburger-menu .hamburger-line:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.menu-toggle-checkbox:checked ~ .hamburger-menu .hamburger-line:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.menu-toggle-checkbox:checked ~ .hamburger-menu .hamburger-line:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
 }
 
 @media (max-width: 1023px) {
-  .mobile-menu-toggle {
-    display: block;
-    z-index: 1001;
+  .hamburger-menu {
+    display: flex;
   }
   
   .nav-menu {
@@ -167,20 +200,59 @@ button {
     padding-right: max(var(--space-md), env(safe-area-inset-right));
     padding-bottom: max(var(--space-md), env(safe-area-inset-bottom));
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    display: none;
     max-height: calc(100vh - 70px);
     max-height: calc(100svh - 70px);
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                visibility 0s 0.3s;
   }
   
-  .nav-menu.active {
-    display: flex;
+  /* Show menu when checkbox is checked */
+  .menu-toggle-checkbox:checked ~ .nav-menu {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
   
   .nav-menu li {
     width: 100%;
     text-align: center;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  
+  /* Staggered animation for menu items */
+  .menu-toggle-checkbox:checked ~ .nav-menu li {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .menu-toggle-checkbox:checked ~ .nav-menu li:nth-child(1) {
+    transition-delay: 0.1s;
+  }
+  
+  .menu-toggle-checkbox:checked ~ .nav-menu li:nth-child(2) {
+    transition-delay: 0.15s;
+  }
+  
+  .menu-toggle-checkbox:checked ~ .nav-menu li:nth-child(3) {
+    transition-delay: 0.2s;
+  }
+  
+  .menu-toggle-checkbox:checked ~ .nav-menu li:nth-child(4) {
+    transition-delay: 0.25s;
+  }
+  
+  .menu-toggle-checkbox:checked ~ .nav-menu li:nth-child(5) {
+    transition-delay: 0.3s;
   }
   
   .nav-menu a {
@@ -202,6 +274,22 @@ button {
     min-height: 40px;
     line-height: 40px;
     font-size: 0.9rem;
+  }
+  
+  .hamburger-menu {
+    gap: 4px;
+  }
+  
+  .hamburger-line {
+    height: 2px;
+  }
+  
+  .menu-toggle-checkbox:checked ~ .hamburger-menu .hamburger-line:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+  }
+  
+  .menu-toggle-checkbox:checked ~ .hamburger-menu .hamburger-line:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
   }
 }
 

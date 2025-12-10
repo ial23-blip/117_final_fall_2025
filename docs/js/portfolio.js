@@ -1,44 +1,12 @@
-// Mobile menu toggle
-const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-const navMenu = document.querySelector('.nav-menu');
-
-if (mobileMenuToggle) {
-  mobileMenuToggle.addEventListener('click', (e) => {
-    e.stopPropagation();
-    navMenu.classList.toggle('active');
-    const isOpen = navMenu.classList.contains('active');
-    mobileMenuToggle.querySelector('span').textContent = isOpen ? '✕' : '☰';
-    document.body.classList.toggle('menu-open', isOpen);
-  });
-
-  // Close menu when clicking a link
-  document.querySelectorAll('.nav-menu a').forEach(link => {
-    link.addEventListener('click', () => {
-      navMenu.classList.remove('active');
-      mobileMenuToggle.querySelector('span').textContent = '☰';
-      document.body.classList.remove('menu-open');
-    });
-  });
-
-  // Close menu when clicking outside
-  document.addEventListener('click', (e) => {
-    if (!e.target.closest('.nav-container')) {
-      navMenu.classList.remove('active');
-      mobileMenuToggle.querySelector('span').textContent = '☰';
-      document.body.classList.remove('menu-open');
+// CSS-only hamburger menu - close menu when clicking a link
+document.querySelectorAll('.nav-menu a').forEach(link => {
+  link.addEventListener('click', () => {
+    const menuToggle = document.getElementById('menu-toggle');
+    if (menuToggle) {
+      menuToggle.checked = false;
     }
   });
-  
-  // Handle orientation change
-  window.addEventListener('orientationchange', () => {
-    if (navMenu.classList.contains('active')) {
-      // Small delay to let orientation change complete
-      setTimeout(() => {
-        // Menu stays open but adjusts to new orientation
-      }, 100);
-    }
-  });
-}
+});
 
 // Smooth scroll for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
