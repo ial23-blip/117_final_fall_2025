@@ -58,8 +58,7 @@ if (quoteForm) {
     // Collect form data
     const formData = {
       fullName: this.querySelector('#fullName').value,
-      phone: this.querySelector('#phone').value,
-      email: this.querySelector('#emailAddress').value,
+      emailAddress: this.querySelector('#emailAddress').value,
       address: this.querySelector('#address').value,
       serviceType: this.querySelector('#serviceType').value,
       projectDetails: this.querySelector('#projectDetails').value,

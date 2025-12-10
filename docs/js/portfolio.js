@@ -100,7 +100,7 @@ if (contactForm) {
       submitButton.textContent = 'Error - Try Again';
       submitButton.style.backgroundColor = '#ef4444';
       
-      alert('Sorry, there was an error submitting the form. Please try emailing directly at contact@aiproductengineer.com');
+      alert('Sorry, there was an error submitting the form. Please try emailing directly at ial23@njit.edu');
       
       setTimeout(() => {
         submitButton.textContent = originalText;
