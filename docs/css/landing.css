@@ -289,6 +289,16 @@ h3 {
   transform: scaleX(1);
 }
 
+.project-icon-link {
+  display: inline-block;
+  text-decoration: none;
+  transition: transform var(--transition-base);
+}
+
+.project-icon-link:hover {
+  transform: scale(1.1) rotate(5deg);
+}
+
 .project-icon {
   width: 60px;
   height: 60px;
@@ -298,6 +308,12 @@ h3 {
   align-items: center;
   justify-content: center;
   margin-bottom: var(--space-sm);
+  transition: all var(--transition-base);
+  cursor: pointer;
+}
+
+.project-icon-link:hover .project-icon {
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
 }
 
 .project-icon svg {
