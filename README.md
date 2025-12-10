@@ -539,11 +539,11 @@ Every element should serve a purpose. Persuasion psychology guides users toward 
 
 ## 📞 Contact
 
-**Developer:** [Your Name]  
-**Email:** your.email@example.com  
-**LinkedIn:** [linkedin.com/in/yourprofile](https://linkedin.com/in/yourprofile)  
+**Developer:** Isabella Lora  
+**Email:** ial23@njit.edu  
+**Portfolio:** [ial23-blip.github.io](https://ial23-blip.github.io/)  
 **GitHub:** [github.com/ial23-blip](https://github.com/ial23-blip)  
-**Portfolio:** [ial23-blip.github.io/117_final_fall_2025](https://ial23-blip.github.io/117_final_fall_2025)
+**Project:** [ial23-blip.github.io/117_final_fall_2025](https://ial23-blip.github.io/117_final_fall_2025)
 
 ---
 
