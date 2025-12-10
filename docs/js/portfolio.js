@@ -3,10 +3,12 @@ const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
 const navMenu = document.querySelector('.nav-menu');
 
 if (mobileMenuToggle) {
-  mobileMenuToggle.addEventListener('click', () => {
+  mobileMenuToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
     navMenu.classList.toggle('active');
     const isOpen = navMenu.classList.contains('active');
     mobileMenuToggle.querySelector('span').textContent = isOpen ? '✕' : '☰';
+    document.body.classList.toggle('menu-open', isOpen);
   });
 
   // Close menu when clicking a link
@@ -14,6 +16,7 @@ if (mobileMenuToggle) {
     link.addEventListener('click', () => {
       navMenu.classList.remove('active');
       mobileMenuToggle.querySelector('span').textContent = '☰';
+      document.body.classList.remove('menu-open');
     });
   });
 
@@ -22,6 +25,17 @@ if (mobileMenuToggle) {
     if (!e.target.closest('.nav-container')) {
       navMenu.classList.remove('active');
       mobileMenuToggle.querySelector('span').textContent = '☰';
+      document.body.classList.remove('menu-open');
+    }
+  });
+  
+  // Handle orientation change
+  window.addEventListener('orientationchange', () => {
+    if (navMenu.classList.contains('active')) {
+      // Small delay to let orientation change complete
+      setTimeout(() => {
+        // Menu stays open but adjusts to new orientation
+      }, 100);
     }
   });
 }

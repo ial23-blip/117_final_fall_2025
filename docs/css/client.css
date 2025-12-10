@@ -64,6 +64,8 @@ button {
 @media (max-width: 767px) {
   .container-client {
     padding: 0 var(--space-sm);
+    padding-left: max(var(--space-sm), env(safe-area-inset-left));
+    padding-right: max(var(--space-sm), env(safe-area-inset-right));
   }
 }
 
@@ -928,21 +930,41 @@ button {
 
 @media (max-width: 767px) {
   .section-client {
-    padding: var(--space-lg) var(--space-sm);
+    padding: var(--space-md) var(--space-sm);
   }
   
   .hero-client {
-    padding: var(--space-xl) var(--space-sm) var(--space-lg);
+    padding: var(--space-lg) var(--space-sm) var(--space-md);
     min-height: 100svh;
   }
   
   .nav-links {
     gap: var(--space-xs);
-    font-size: 0.875rem;
+    font-size: 0.8rem;
+    flex-wrap: wrap;
+    justify-content: center;
   }
   
   .nav-links a {
-    padding: 0.5rem 0.75rem;
+    padding: 0.4rem 0.6rem;
+    white-space: nowrap;
+  }
+}
+
+/* Landscape mobile - more compact */
+@media (max-width: 1023px) and (max-height: 500px) {
+  .section-client {
+    padding: var(--space-sm);
+  }
+  
+  .hero-client {
+    padding: var(--space-md) var(--space-sm);
+    min-height: auto;
+  }
+  
+  .nav-links a {
+    padding: 0.3rem 0.5rem;
+    font-size: 0.75rem;
   }
   
   .nav-cta-btn {
