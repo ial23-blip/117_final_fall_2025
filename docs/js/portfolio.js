@@ -1,3 +1,31 @@
+// Mobile menu toggle
+const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+const navMenu = document.querySelector('.nav-menu');
+
+if (mobileMenuToggle) {
+  mobileMenuToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+    const isOpen = navMenu.classList.contains('active');
+    mobileMenuToggle.querySelector('span').textContent = isOpen ? '✕' : '☰';
+  });
+
+  // Close menu when clicking a link
+  document.querySelectorAll('.nav-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      navMenu.classList.remove('active');
+      mobileMenuToggle.querySelector('span').textContent = '☰';
+    });
+  });
+
+  // Close menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.nav-container')) {
+      navMenu.classList.remove('active');
+      mobileMenuToggle.querySelector('span').textContent = '☰';
+    }
+  });
+}
+
 // Smooth scroll for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {

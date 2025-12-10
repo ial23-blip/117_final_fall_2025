@@ -41,12 +41,30 @@ body {
   line-height: 1.6;
   color: var(--color-text);
   background-color: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Mobile touch optimizations */
+a, button {
+  -webkit-tap-highlight-color: rgba(45, 80, 22, 0.3);
+  touch-action: manipulation;
+}
+
+button {
+  cursor: pointer;
 }
 
 .container-client {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 var(--space-md);
+}
+
+@media (max-width: 767px) {
+  .container-client {
+    padding: 0 var(--space-sm);
+  }
 }
 
 /* ===================================
@@ -908,10 +926,23 @@ body {
    RESPONSIVE DESIGN - MOBILE FIRST
    =================================== */
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
+  .section-client {
+    padding: var(--space-lg) var(--space-sm);
+  }
+  
+  .hero-client {
+    padding: var(--space-xl) var(--space-sm) var(--space-lg);
+    min-height: 100svh;
+  }
+  
   .nav-links {
-    gap: var(--space-sm);
+    gap: var(--space-xs);
     font-size: 0.875rem;
+  }
+  
+  .nav-links a {
+    padding: 0.5rem 0.75rem;
   }
   
   .nav-cta-btn {
@@ -927,8 +958,38 @@ body {
     grid-template-columns: 1fr;
   }
   
-  .indicators-grid {
+  .indicators-grid,
+  .services-grid-client,
+  .portfolio-grid,
+  .testimonials-grid-client {
     grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+  
+  .service-card-client,
+  .portfolio-item,
+  .testimonial-card-client {
+    padding: var(--space-md);
+  }
+  
+  .quote-form input,
+  .quote-form textarea,
+  .quote-form select,
+  .quote-form button {
+    font-size: 16px;
+  }
+  
+  .cta-button,
+  .btn-client {
+    min-height: 44px;
+    padding: 0.875rem 1.5rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .services-grid-client,
+  .portfolio-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 

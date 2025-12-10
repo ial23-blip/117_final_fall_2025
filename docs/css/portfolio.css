@@ -47,12 +47,30 @@ body {
   line-height: 1.6;
   color: var(--color-text);
   background-color: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Mobile touch optimizations */
+a, button {
+  -webkit-tap-highlight-color: rgba(37, 99, 235, 0.3);
+  touch-action: manipulation;
+}
+
+button {
+  cursor: pointer;
 }
 
 .container {
   max-width: var(--container-max);
   margin: 0 auto;
   padding: 0 var(--space-md);
+}
+
+@media (max-width: 767px) {
+  .container {
+    padding: 0 var(--space-sm);
+  }
 }
 
 /* ===================================
@@ -96,6 +114,51 @@ body {
   list-style: none;
   gap: var(--space-md);
   align-items: center;
+}
+
+.mobile-menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  color: var(--color-text);
+  min-width: 44px;
+  min-height: 44px;
+}
+
+@media (max-width: 1023px) {
+  .mobile-menu-toggle {
+    display: block;
+  }
+  
+  .nav-menu {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background: white;
+    flex-direction: column;
+    padding: var(--space-md);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: none;
+  }
+  
+  .nav-menu.active {
+    display: flex;
+  }
+  
+  .nav-menu li {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .nav-menu a {
+    display: block;
+    padding: var(--space-sm);
+    min-height: 44px;
+  }
 }
 
 .nav-menu a {
@@ -803,6 +866,36 @@ body {
    RESPONSIVE DESIGN
    =================================== */
 
+@media (max-width: 767px) {
+  .section {
+    padding: var(--space-lg) var(--space-sm);
+  }
+  
+  .hero {
+    padding: var(--space-xl) var(--space-sm) var(--space-lg);
+    min-height: 100svh;
+  }
+  
+  .services-grid,
+  .case-studies-grid,
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+  
+  .form-group input,
+  .form-group textarea,
+  .form-group button {
+    font-size: 16px;
+  }
+  
+  .service-card,
+  .case-study-card,
+  .testimonial-card {
+    padding: var(--space-md);
+  }
+}
+
 @media (min-width: 768px) {
   .about-grid {
     grid-template-columns: 1fr 1.5fr;
@@ -819,11 +912,19 @@ body {
   .footer-content {
     grid-template-columns: 1.5fr 1fr;
   }
+  
+  .services-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 @media (min-width: 1024px) {
   .nav-menu {
-    display: flex;
+    display: flex !important;
+  }
+  
+  .mobile-menu-toggle {
+    display: none;
   }
 }
 
