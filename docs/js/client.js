@@ -1,3 +1,13 @@
+// CSS-only hamburger menu - close menu when clicking a link
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', () => {
+    const menuToggle = document.getElementById('menu-toggle-client');
+    if (menuToggle) {
+      menuToggle.checked = false;
+    }
+  });
+});
+
 // Smooth scrolling for navigation
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
