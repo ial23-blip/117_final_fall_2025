@@ -744,19 +744,46 @@ button {
 
 .case-study-card h4 {
   font-size: 1.25rem;
-  margin-bottom: var(--space-sm);
+  margin-bottom: var(--space-xs);
   color: var(--color-text);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.case-study-role {
+  font-size: 0.875rem;
+  color: var(--color-primary);
+  font-weight: 600;
+  margin-bottom: var(--space-xs) !important;
 }
 
 .case-study-card p {
   color: var(--color-text-light);
   margin-bottom: var(--space-sm);
+  line-height: 1.6;
+}
+
+.case-study-link {
+  display: inline-block;
+  margin-top: var(--space-sm);
+  color: var(--color-primary);
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 0.875rem;
+  letter-spacing: 0.5px;
+  transition: transform var(--transition);
+}
+
+.case-study-link:hover {
+  transform: translateX(4px);
+  text-decoration: underline;
 }
 
 .case-study-tags {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-xs);
+  margin-bottom: var(--space-sm);
 }
 
 /* ===================================
