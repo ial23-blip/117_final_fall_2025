@@ -1,0 +1,5 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="600" fill="#0066cc"/>
+  <text x="400" y="280" font-family="Arial, sans-serif" font-size="60" font-weight="bold" fill="white" text-anchor="middle">Portfolio</text>
+  <text x="400" y="350" font-family="Arial, sans-serif" font-size="60" font-weight="bold" fill="white" text-anchor="middle">System</text>
+</svg>
