@@ -443,12 +443,16 @@ button {
   align-items: center;
 }
 
+.about-image {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
 .profile-image {
   width: 100%;
-  max-width: 400px;
   aspect-ratio: 1;
   object-fit: cover;
-  object-position: center;
+  object-position: center top;
   border-radius: 1rem;
   display: block;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
